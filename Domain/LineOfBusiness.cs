@@ -15,4 +15,10 @@ public readonly struct LineOfBusiness : IEquatable<LineOfBusiness>
     public override bool Equals(object? obj) => obj is LineOfBusiness other && Equals(other);
 
     public override int GetHashCode() => _value.GetHashCode();
+
+    public static bool operator ==(LineOfBusiness left, LineOfBusiness right) => left.Equals(right);
+
+    public static bool operator !=(LineOfBusiness left, LineOfBusiness right) => !(left == right);
+
+    public override string ToString() => _value;
 }

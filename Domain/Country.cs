@@ -15,4 +15,8 @@ public readonly struct Country : IEquatable<Country>
     public override bool Equals(object? obj) => obj is Country other && Equals(other);
 
     public override int GetHashCode() => _value.GetHashCode();
+
+    public static bool operator ==(Country left, Country right) => left.Equals(right);
+
+    public static bool operator !=(Country left, Country right) => !(left == right);
 }

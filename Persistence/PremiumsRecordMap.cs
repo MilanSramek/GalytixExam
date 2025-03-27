@@ -6,10 +6,10 @@ internal sealed class PremiumsRecordMap : ClassMap<PremiumsRecord>
 {
     public PremiumsRecordMap()
     {
-        Map(_ => _.Country);
-        Map(_ => _.VariableId);
-        Map(_ => _.VariableName);
-        Map(_ => _.LineOfBusiness);
+        Map(_ => _.Country).Name("country");
+        Map(_ => _.VariableId).Name("variableId");
+        Map(_ => _.VariableName).Name("variableName");
+        Map(_ => _.LineOfBusiness).Name("lineOfBusiness");
         Map(_ => _.ExtraColumns).Convert(args =>
         {
             var extraColumns = new Dictionary<string, string>();

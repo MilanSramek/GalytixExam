@@ -25,6 +25,10 @@ internal static class PremiumMapping
         var yearRaw = kvp.Key.AsSpan()[1..];
         var year = int.Parse(yearRaw);
 
-        return new YearValue(year, decimal.Parse(kvp.Value));
+        var value = decimal.TryParse(kvp.Value, out var result)
+            ? result
+            : 0;
+
+        return new YearValue(year, value);
     }
 }
